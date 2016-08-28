@@ -47,11 +47,15 @@ function computerTurn(iter) {
     turnLightsOff();
     return;
   }
+  if (iter === 0) {
+    turnLightsOff();
+    userTurn();
+    return;
+  }
   if (iter === iterations) {
     whoseTurn = "computer";
     computerInput.push(Math.floor(Math.random()*4));
   }
-  console.log(computerInput);
   switch(computerInput[iterations-iter]) {
     case(0): lightGreen(); break;
     case(1): lightRed(); break;
@@ -60,15 +64,10 @@ function computerTurn(iter) {
   }
   setTimeout(function() {
     if (state === "running") {
-      turnLightsOff();
-      if (iter === 0) {
-        userTurn();
-        return;
-      } else {
-        setTimeout(function() {
-          computerTurn(iter-1);
-        }, currentBreak);
-      }
+    turnLightsOff();
+      setTimeout(function() {
+        computerTurn(iter-1);
+      }, currentBreak);
     }
   }, currentSpeed);
 }
