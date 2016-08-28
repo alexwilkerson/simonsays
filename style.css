@@ -10,7 +10,9 @@ body {
 
 #num-circle {
     -webkit-animation: rotation 5s infinite linear;
+    animation: rotation 5s infinite linear;
     -webkit-animation-play-state: paused;
+    animation-play-state: paused;
     -webkit-tranform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
@@ -18,6 +20,11 @@ body {
 @-webkit-keyframes rotation {
     from {-webkit-transform: rotate(0deg);}
     to   {-webkit-transform: rotate(359deg);}
+}
+
+@keyframes rotation {
+    from {transform: rotate(0deg);}
+    to   {transform: rotate(359deg);}
 }
 
 #start-button {
