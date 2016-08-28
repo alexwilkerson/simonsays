@@ -1,154 +1,3 @@
-      .cls-1 {
-        fill: #2b592e;
-      }
-
-      .cls-2 {
-        fill: #821709;
-      }
-
-      .cls-3 {
-        fill: #13546b;
-      }
-
-      .cls-4 {
-        fill: #937d0c;
-      }
-
-      .cls-5 {
-        fill: #38a34f;
-      }
-
-      .cls-6 {
-        fill: #d3b109;
-      }
-
-      .cls-7 {
-        fill: #0b87b2;
-      }
-
-      .cls-8 {
-        fill: #d63a25;
-      }
-
-      .cls-9 {
-        fill: #3dbd5d;
-      }
-
-      .cls-10 {
-        fill: #e6c700;
-      }
-
-      .cls-11 {
-        fill: #0098d8;
-      }
-
-      .cls-12 {
-        fill: #f54123;
-      }
-
-      .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24, .cls-32 {
-        fill: none;
-      }
-
-      .cls-13 {
-        stroke: #38a34f;
-      }
-
-      .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20 {
-        stroke-linecap: round;
-        stroke-width: 5px;
-      }
-
-      .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24 {
-        stroke-linejoin: round;
-      }
-
-      .cls-14 {
-        stroke: #5ecc76;
-      }
-
-      .cls-15 {
-        stroke: #cc392b;
-      }
-
-      .cls-16 {
-        stroke: #ff7469;
-      }
-
-      .cls-17 {
-        stroke: #d2b029;
-      }
-
-      .cls-18 {
-        stroke: #f7db66;
-      }
-
-      .cls-19 {
-        stroke: #1a88b0;
-      }
-
-      .cls-20 {
-        stroke: #37b6e2;
-      }
-
-      .cls-21 {
-        stroke: #f54123;
-      }
-
-      .cls-21, .cls-22, .cls-23, .cls-24 {
-        stroke-width: 6px;
-      }
-
-      .cls-22 {
-        stroke: #3dbd5d;
-      }
-
-      .cls-23 {
-        stroke: #d3b109;
-      }
-
-      .cls-24 {
-        stroke: #0098d8;
-      }
-
-      .cls-25 {
-        fill: #191919;
-      }
-
-      .cls-26 {
-        font-size: 19.78px;
-        fill: #efefef;
-      }
-
-      .cls-26, .num-field, .cls-31 {
-        font-family: HelveticaNeue-Bold, Helvetica Neue;
-        font-weight: 700;
-      }
-
-      .cls-27 {
-        letter-spacing: -0.09em;
-      }
-
-      .cls-28 {
-        letter-spacing: -0.02em;
-      }
-
-      .cls-29 {
-        letter-spacing: 0em;
-      }
-
-      .num-field {
-        font-size: 35.96px;
-      }
-
-      .num-field, .cls-31 {
-        fill: #efefef;
-      }
-
-      .cls-31 {
-        font-size: 12px;
-      }
-
 body {
   background-color: #777870;
 }
@@ -156,6 +5,7 @@ body {
 .container {
   width: 100vw;
   max-width: 300px;
+  max-height: 100vw;
   margin: 0 auto;
   padding-top: 30px;
 }
@@ -170,3 +20,155 @@ body {
     from {-webkit-transform: rotate(0deg);}
     to   {-webkit-transform: rotate(359deg);}
 }
+
+.cls-1 {
+  fill: #2b592e;
+}
+
+.cls-2 {
+  fill: #821709;
+}
+
+.cls-3 {
+  fill: #13546b;
+}
+
+.cls-4 {
+  fill: #937d0c;
+}
+
+.cls-5 {
+  fill: #38a34f;
+}
+
+.cls-6 {
+  fill: #d3b109;
+}
+
+.cls-7 {
+  fill: #0b87b2;
+}
+
+.cls-8 {
+  fill: #d63a25;
+}
+
+.cls-9 {
+  fill: #3dbd5d;
+}
+
+.cls-10 {
+  fill: #e6c700;
+}
+
+.cls-11 {
+  fill: #0098d8;
+}
+
+.cls-12 {
+  fill: #f54123;
+}
+
+.cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24, .cls-32 {
+  fill: none;
+}
+
+.cls-13 {
+  stroke: #38a34f;
+}
+
+.cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20 {
+  stroke-linecap: round;
+  stroke-width: 5px;
+}
+
+.cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22, .cls-23, .cls-24 {
+  stroke-linejoin: round;
+}
+
+.cls-14 {
+  stroke: #5ecc76;
+}
+
+.cls-15 {
+  stroke: #cc392b;
+}
+
+.cls-16 {
+  stroke: #ff7469;
+}
+
+.cls-17 {
+  stroke: #d2b029;
+}
+
+.cls-18 {
+  stroke: #f7db66;
+}
+
+.cls-19 {
+  stroke: #1a88b0;
+}
+
+.cls-20 {
+  stroke: #37b6e2;
+}
+
+.cls-21 {
+  stroke: #f54123;
+}
+
+.cls-21, .cls-22, .cls-23, .cls-24 {
+  stroke-width: 6px;
+}
+
+.cls-22 {
+  stroke: #3dbd5d;
+}
+
+.cls-23 {
+  stroke: #d3b109;
+}
+
+.cls-24 {
+  stroke: #0098d8;
+}
+
+.cls-25 {
+  fill: #191919;
+}
+
+.cls-26 {
+  font-size: 19.78px;
+  fill: #efefef;
+}
+
+.cls-26, .num-field, .cls-31 {
+  font-family: HelveticaNeue-Bold, Helvetica Neue;
+  font-weight: 700;
+}
+
+.cls-27 {
+  letter-spacing: -0.09em;
+}
+
+.cls-28 {
+  letter-spacing: -0.02em;
+}
+
+.cls-29 {
+  letter-spacing: 0em;
+}
+
+.num-field {
+  font-size: 35.96px;
+}
+
+.num-field, .cls-31 {
+  fill: #efefef;
+}
+
+.cls-31 {
+  font-size: 12px;
+}
+
