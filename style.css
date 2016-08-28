@@ -10,6 +10,7 @@ body {
 
 #num-circle {
     -webkit-animation: rotation 5s infinite linear;
+    -webkit-animation-play-state: paused;
     -webkit-tranform-origin: 50% 50%;
     transform-origin: 50% 50%;
 }
@@ -17,6 +18,14 @@ body {
 @-webkit-keyframes rotation {
     from {-webkit-transform: rotate(0deg);}
     to   {-webkit-transform: rotate(359deg);}
+}
+
+#start-button {
+  cursor: pointer;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
 }
 
 .cls-1 {
