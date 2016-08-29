@@ -262,7 +262,7 @@ $(document).ready(function(){
       lightGreen();
     }
   });
-  $("#red-corner").mousedown("mousedown touchstart", function() {
+  $("#red-corner").on("mousedown touchstart", function() {
     if (whoseTurn === "user") {
       lightRed();
     }
