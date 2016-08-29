@@ -256,28 +256,28 @@ $(document).ready(function(){
   $("#yellow-corner").click(function(){userClick(2);});
   $("#blue-corner").click(function(){userClick(3);});
   $("#strict-mode").click(function(){clickStrict();});
-  $("#green-corner").mousedown(function() {
+  $("#green-corner").on("mousedown touchstart", function() {
     if (whoseTurn === "user") {
       console.log("down");
       lightGreen();
     }
   });
-  $("#red-corner").mousedown(function() {
+  $("#red-corner").mousedown("mousedown touchstart", function() {
     if (whoseTurn === "user") {
       lightRed();
     }
   });
-  $("#yellow-corner").mousedown(function() {
+  $("#yellow-corner").on("mousedown touchstart", function() {
     if (whoseTurn === "user") {
       lightYellow();
     }
   });
-  $("#blue-corner").mousedown(function() {
+  $("#blue-corner").on("mousedown touchstart", function() {
     if (whoseTurn === "user") {
       lightBlue();
     }
   });
-  $("body").mouseup(function() {
+  $("body").on("mouseup touchend", function() {
     if (whoseTurn === "user"){
       turnLightsOff();
       console.log("test");
