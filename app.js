@@ -250,7 +250,13 @@ function updateIterations(num) {
 }
 
 $(document).ready(function(){
-  $("#start-button").click(function(){clickStart();});
+  var timer = null;
+  $("#start-button").click(function(){
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      clickStart();
+    },50);
+  });
   $("#green-corner").click(function(){userClick(0);});
   $("#red-corner").click(function(){userClick(1);});
   $("#yellow-corner").click(function(){userClick(2);});
