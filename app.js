@@ -27,6 +27,7 @@ function clickStart() {
     computerTurn(1);
   } else {
     state = "off";
+    whoseTurn = "user";
     $(".num-field").attr("transform", "translate(9.08 184.83)");
     $(".num-field").text("--");
     $("#num-circle").css("animation-play-state", "paused");
