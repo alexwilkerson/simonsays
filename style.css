@@ -27,21 +27,17 @@ body {
     to   {transform: rotate(359deg);}
 }
 
-#start-button, #strict-mode {
-  cursor: pointer;
-  -webkit-user-select: none;  /* Chrome all / Safari all */
-  -moz-user-select: none;     /* Firefox all */
-  -ms-user-select: none;      /* IE 10+ */
-  user-select: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  tap-highlight-color: rgba(0,0,0,0);
-}
-
+#start-button,
+#strict-mode,
 #green-corner,
 #red-corner,
 #yellow-corner,
 #blue-corner {
   cursor: pointer;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   tap-highlight-color: rgba(0,0,0,0);
 }
