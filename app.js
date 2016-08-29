@@ -3,14 +3,19 @@ var strictMode = 0;
 var iterations = 0;
 var whoseTurn = "computer";
 
-var lowSpeed = 850;
-var midSpeed = 650;
-var highSpeed = 500;
+var lowSpeed = 800;
+var midSpeed = 600;
+var highSpeed = 400;
+var superDuperExtremeMaximumHighSpeed = 200;
 var currentSpeed = lowSpeed;
 var currentBreak = 100;
 
 var userInput = [];
 var computerInput = [];
+
+var greenOsc, redOsc, yellowOsc, blueOsc;
+
+var audio = new (window.AudioContext || window.webkitAudioContext)();
 
 function clickStart() {
   if (state === "off") {
@@ -22,6 +27,8 @@ function clickStart() {
     computerTurn(1);
   } else {
     state = "off";
+    $(".num-field").attr("transform", "translate(9.08 184.83)");
+    $(".num-field").text("--");
     $("#num-circle").css("animation-play-state", "paused");
     $("#start-text").attr("transform", "translate(61.35 181.8)");
     $("#start-text").text("START");
@@ -51,6 +58,7 @@ function reset() {
   $("#start-text").removeClass("hidden");
   $("#win-screen").addClass("hidden");
   $("#lose-screen").addClass("hidden");
+  $(".num-field").attr("transform", "translate(5.08 186.83)");
 }
 
 function computerTurn(iter) {
@@ -99,15 +107,62 @@ function userClick(button) {
     if (userInput[userInput.length-1] !== computerInput[userInput.length-1]){
       userLoss();
     } else if (userInput.length === computerInput.length) {
-      updateIterations(iterations+1);
-      computerTurn(iterations+1);
+      if (iterations === 20) {
+        userWin();
+      } else {
+        if (iterations === 4) {
+          currentSpeed = midSpeed;
+        } else if (iterations === 8) {
+          currentSpeed = highSpeed;
+        } else if (iterations === 12) {
+          currentSpeed = superDuperExtremeMaximumHighSpeed;
+        }
+        updateIterations(iterations+1);
+        computerTurn(iterations+1);
+      }
     }
   }
+}
+
+function userWin() {
+  state = "win";
+  updateIterations(iterations);
+  var flashTime = 500;
+  $("#start-text").addClass("hidden");
+  $("#win-screen").removeClass("hidden");
+  lightGreen();
+  setTimeout(function() {
+    $("#win-screen").addClass("hidden");
+    turnLightsOff();
+    lightRed();
+    setTimeout(function() {
+      $("#win-screen").removeClass("hidden");
+      turnLightsOff();
+      lightBlue();
+      setTimeout(function() {
+        $("#win-screen").addClass("hidden");
+        turnLightsOff();
+        lightYellow();
+        setTimeout(function() {
+          $("#start-text").removeClass("hidden");
+          turnLightsOff();
+          reset();
+          state = "running";
+          computerTurn(iterations);
+        }, flashTime);
+      }, flashTime);
+    }, flashTime);
+  }, flashTime);
 }
 
 function userLoss() {
   state = "loss";
   var flashTime = 500;
+  var errOsc = audio.createOscillator();
+  errOsc.type = "square";
+  errOsc.frequency.value = 73;
+  errOsc.connect(audio.destination);
+  errOsc.start();
   $("#start-text").addClass("hidden");
   $("#lose-screen").removeClass("hidden");
   setTimeout(function() {
@@ -116,6 +171,9 @@ function userLoss() {
       $("#lose-screen").removeClass("hidden");
       setTimeout(function() {
         $("#lose-screen").addClass("hidden");
+        try {
+          errOsc.stop();
+        } catch(e) {}
         setTimeout(function() {
           $("#start-text").removeClass("hidden");
           if (strictMode === 0) {
@@ -136,22 +194,54 @@ function turnLightsOff() {
   $("#red-light").removeClass("red-light-on");
   $("#yellow-light").removeClass("yellow-light-on");
   $("#blue-light").removeClass("blue-light-on");
+  try {
+    greenOsc.stop();
+  } catch(e) {}
+  try {
+    redOsc.stop();
+  } catch(e) {}
+  try {
+    yellowOsc.stop();
+  } catch(e) {}
+  try {
+    blueOsc.stop();
+  } catch(e) {}
 }
 
 function lightGreen() {
   $("#green-light").addClass("green-light-on");
+  greenOsc = audio.createOscillator();
+  greenOsc.type = "sine";
+  greenOsc.frequency.value = 261.626;
+  greenOsc.connect(audio.destination);
+  greenOsc.start();
 }
 
 function lightRed() {
   $("#red-light").addClass("red-light-on");
+  redOsc = audio.createOscillator();
+  redOsc.type = "sine";
+  redOsc.frequency.value = 293.665;
+  redOsc.connect(audio.destination);
+  redOsc.start();
 }
 
 function lightYellow() {
   $("#yellow-light").addClass("yellow-light-on");
+  yellowOsc = audio.createOscillator();
+  yellowOsc.type = "sine";
+  yellowOsc.frequency.value = 329.628;
+  yellowOsc.connect(audio.destination);
+  yellowOsc.start();
 }
 
 function lightBlue() {
   $("#blue-light").addClass("blue-light-on");
+  blueOsc = audio.createOscillator();
+  blueOsc.type = "sine";
+  blueOsc.frequency.value = 440;
+  blueOsc.connect(audio.destination);
+  blueOsc.start();
 }
 
 function updateIterations(num) {
@@ -166,4 +256,31 @@ $(document).ready(function(){
   $("#yellow-corner").click(function(){userClick(2);});
   $("#blue-corner").click(function(){userClick(3);});
   $("#strict-mode").click(function(){clickStrict();});
+  $("#green-corner").mousedown(function() {
+    if (whoseTurn === "user") {
+      console.log("down");
+      lightGreen();
+    }
+  });
+  $("#red-corner").mousedown(function() {
+    if (whoseTurn === "user") {
+      lightRed();
+    }
+  });
+  $("#yellow-corner").mousedown(function() {
+    if (whoseTurn === "user") {
+      lightYellow();
+    }
+  });
+  $("#blue-corner").mousedown(function() {
+    if (whoseTurn === "user") {
+      lightBlue();
+    }
+  });
+  $("body").mouseup(function() {
+    if (whoseTurn === "user"){
+      turnLightsOff();
+      console.log("test");
+    }
+  })
 });
