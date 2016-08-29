@@ -65,6 +65,7 @@ function computerTurn(iter) {
   }
   if (iter === iterations) {
     if (state !== "loss") {
+      updateIterations(iterations);
       computerInput.push(Math.floor(Math.random()*4));
     } else {
       state = "running";
@@ -99,7 +100,6 @@ function userClick(button) {
     if (userInput[userInput.length-1] !== computerInput[userInput.length-1]){
       userLoss();
     } else if (userInput.length === computerInput.length) {
-      updateIterations(iterations+1);
       computerTurn(iterations+1);
     }
   }
