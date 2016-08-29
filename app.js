@@ -166,8 +166,4 @@ $(document).ready(function(){
   $("#yellow-corner").click(function(){userClick(2);});
   $("#blue-corner").click(function(){userClick(3);});
   $("#strict-mode").click(function(){clickStrict();});
-  $("#green-corner").attr("onclick", "void(0)");
-  $("#red-corner").attr("onclick", "void(0)");
-  $("#yellow-corner").attr("onclick", "void(0)");
-  $("#blue-corner").attr("onclick", "void(0)");
 });
