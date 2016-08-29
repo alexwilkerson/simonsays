@@ -27,7 +27,7 @@ body {
     to   {transform: rotate(359deg);}
 }
 
-#start-button {
+#start-button, #style-mode {
   cursor: pointer;
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */

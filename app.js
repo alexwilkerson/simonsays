@@ -1,7 +1,7 @@
 var state = "off";
 var strictMode = 0;
 var iterations = 0;
-var whoseTurn = "computer";
+var whoseTurn;
 
 var lowSpeed = 800;
 var midSpeed = 600;
@@ -102,7 +102,6 @@ function userTurn() {
 
 function userClick(button) {
   if (state === "running" && whoseTurn === "user"){
-    console.log(button);
     userInput.push(button);
     if (userInput[userInput.length-1] !== computerInput[userInput.length-1]){
       userLoss();
@@ -257,30 +256,28 @@ $(document).ready(function(){
   $("#blue-corner").click(function(){userClick(3);});
   $("#strict-mode").click(function(){clickStrict();});
   $("#green-corner").on("mousedown touchstart", function() {
-    if (whoseTurn === "user") {
-      console.log("down");
+    if (whoseTurn !== "computer") {
       lightGreen();
     }
   });
   $("#red-corner").on("mousedown touchstart", function() {
-    if (whoseTurn === "user") {
+    if (whoseTurn !== "computer") {
       lightRed();
     }
   });
   $("#yellow-corner").on("mousedown touchstart", function() {
-    if (whoseTurn === "user") {
+    if (whoseTurn !== "computer") {
       lightYellow();
     }
   });
   $("#blue-corner").on("mousedown touchstart", function() {
-    if (whoseTurn === "user") {
+    if (whoseTurn !== "computer") {
       lightBlue();
     }
   });
   $("body").on("mouseup touchend", function() {
-    if (whoseTurn === "user"){
+    if (whoseTurn !== "computer"){
       turnLightsOff();
-      console.log("test");
     }
   })
 });
